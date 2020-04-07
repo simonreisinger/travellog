@@ -2,3 +2,8 @@
 .DS_Store
 keys.js
 idea/
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/travellog.iml
+.idea/modules.xml
+.idea/misc.xml
