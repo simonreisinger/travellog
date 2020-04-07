@@ -8,7 +8,7 @@
 
     <script src="leaflet-gpx-master/gpx.min.js"></script>
     <script src="./data/roadtrips.js"></script>
-    <script src="./keys.js"></script>
+    <!--<script src="./keys.js"></script>-->
     <style>
         #map {
             width: 100%;
@@ -46,39 +46,38 @@
     // https://account.mapbox.com/auth/signup/
 
 
+    for (gpxx in trips) {
+        console.log(trips[gpxx]);
 
-    var gpx = california;
+        var gpx = trips[gpxx];
 
-    var g = new L.GPX(gpx, {
-        async: true,
-        parseElements: ['track'],
-        polyline_options: {
-            color: 'blue'
-        }
-    });
-
-
-    g.on('loaded', function(e) {
-        var gpx = e.target,
-            name = gpx.get_name(),
-            distM = gpx.get_distance(),
-            distKm = distM / 1000,
-            distKmRnd = distKm.toFixed(1),
-            eleGain = gpx.get_elevation_gain().toFixed(0),
-            eleLoss = gpx.get_elevation_loss().toFixed(0);
-        var info = "Name: " + name + "</br>" +
-            "Distance: " + distKmRnd + " km </br>" +
-            "Elevation Gain: " + eleGain + " m </br>"
-
-        // register popup on click
-        gpx.getLayers()[0].bindPopup(info)
-    });
-
-    g.addTo(map);
+        var g = new L.GPX(gpx, {
+            async: true,
+            parseElements: ['track'],
+            polyline_options: {
+                color: 'blue'
+            }
+        });
 
 
+        g.on('loaded', function (e) {
+            var gpx = e.target,
+                name = gpx.get_name(),
+                distM = gpx.get_distance(),
+                distKm = distM / 1000,
+                distKmRnd = distKm.toFixed(1),
+                eleGain = gpx.get_elevation_gain().toFixed(0),
+                eleLoss = gpx.get_elevation_loss().toFixed(0);
+            var info = "Name: " + name + "</br>" +
+                "Distance: " + distKmRnd + " km </br>" +
+                "Elevation Gain: " + eleGain + " m </br>"
 
+            // register popup on click
+            gpx.getLayers()[0].bindPopup(info)
+        });
 
+        g.addTo(map);
+    }
 
 </script>
 </body>
