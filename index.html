@@ -47,7 +47,6 @@
 
 
     for (gpxx in trips) {
-        console.log(trips[gpxx]);
 
         var gpx = trips[gpxx];
 
@@ -69,8 +68,8 @@
                 eleGain = gpx.get_elevation_gain().toFixed(0),
                 eleLoss = gpx.get_elevation_loss().toFixed(0);
             var info = "Name: " + name + "</br>" +
-                "Distance: " + distKmRnd + " km </br>" +
-                "Elevation Gain: " + eleGain + " m </br>"
+                "Distance: " + distKmRnd + " km </br>"
+            //+ "Elevation Gain: " + eleGain + " m </br>"
 
             // register popup on click
             gpx.getLayers()[0].bindPopup(info)
