@@ -168,7 +168,13 @@
                 "Distance: " + distKmRnd + " km </br>";
 
             // register popup on click
-            gpx.getLayers()[0].bindPopup(info)
+            gpx.bindPopup(info);
+            gpx.on('mouseover', function (e) {
+                this.openPopup();
+            });
+            gpx.on('mouseout', function (e) {
+                this.closePopup();
+            });
         });
         g.addTo(layer_roadtrip);
     }
@@ -201,7 +207,14 @@
                 "Distance: " + distKmRnd + " km </br>";
 
             // register popup on click
-            gpx.getLayers()[0].bindPopup(info)
+            gpx.bindPopup(info);
+            // TODO https://stackoverflow.com/questions/59193983/leaflet-show-popup-on-hover-with-the-location-of-the-mouse
+            gpx.on('mouseover', function (e) {
+                this.openPopup();
+            });
+            gpx.on('mouseout', function (e) {
+                this.closePopup();
+            });
         });
         g.addTo(layer_interrail);
     }
@@ -210,24 +223,40 @@
     let layer_residence = L.featureGroup();
     for (let residence in place_of_residence) {
         let position = place_of_residence[residence];
-        L.circleMarker([position.Lat, position.Lon], {
+        let marker = L.circleMarker([position.Lat, position.Lon], {
             color: '#EDA540',
             fillColor: '#EDA540',
             opacity: 0.84,
             radius: 12
         }).addTo(layer_residence);
+        marker.bindPopup("TODO EDIT THIS");
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });
+
     }
     map.addLayer(layer_residence);
 
     let layer_city = L.featureGroup();
     for (let city in cities_visited) {
         let position = cities_visited[city];
-        L.circleMarker([position.Lat, position.Lon], {
+        let marker = L.circleMarker([position.Lat, position.Lon], {
             color: '#E67700',
             fillColor: '#E67700',
             opacity: 0.84,
             radius: 12
         }).addTo(layer_city);
+
+        marker.bindPopup("TODO EDIT THIS");
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });
     }
     map.addLayer(layer_city);
 
