@@ -15,7 +15,7 @@ var cities_visited = {
 
     // Asia, Israel
     Jerusalem: {Lat: 31.768319, Lon: 35.213710},
-    TelAviv: {Lat: 34.781768, Lon: 32.085300},
+    TelAviv: {Lat:32.087229, Lon: 34.771042},
 
     // Europe
     Lissabon: {Lat: 38.722252, Lon: -9.139337},
