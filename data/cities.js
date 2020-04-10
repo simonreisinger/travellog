@@ -18,7 +18,7 @@ var cities_visited = {
     TelAviv: {Lat: 34.781768, Lon: 32.085300},
 
     // Europe
-    Lissabon: {Lat: -9.139337, Lon: 38.722252},
+    Lissabon: {Lat: 38.722252, Lon: -9.139337},
 
     Barcelona: {Lat: 41.385064, Lon: 2.173404},
     SantiagodeCompostela: {Lat: 42.878213, Lon: -8.544844},
@@ -53,7 +53,7 @@ var cities_visited = {
     Rome: {Lat: 41.902783, Lon: 12.496365},
     Napoli: {Lat: 40.851775, Lon: 14.268124},
     Florence: {Lat: 43.769560, Lon: 11.255814},
-    Pisa: {Lat: 10.382981, Lon: 10.382981},
+    Pisa: {Lat: 43.716141, Lon: 10.382981},
     Vernazza: {Lat: 44.134921, Lon: 9.684994},
     Manarola: {Lat: 44.111559, Lon: 9.733894},
     Mailand: {Lat: 45.465422, Lon: 9.185924},
