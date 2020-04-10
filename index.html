@@ -123,11 +123,11 @@
     let map = L.map('map').setView([45, -40], 3.4);
 
     // load a tile layer
-    L.tileLayer('http://a.tile.opentopomap.org/{z}/{x}/{y}.png', {
-        attribution: 'Tiles by <a href="https://opentopomap.org/">OpenTopoMap</a>',
-        maxZoom: 17,
-        minZoom: 1
-    }).addTo(map);
+    //L.tileLayer('http://a.tile.opentopomap.org/{z}/{x}/{y}.png', {
+    //    attribution: 'Tiles by <a href="https://opentopomap.org/">OpenTopoMap</a>',
+    //    maxZoom: 17,
+    //    minZoom: 1
+    //}).addTo(map);
 
     // TODO activate after debugging
     //L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
@@ -137,6 +137,11 @@
     //    maxZoom: 18,
     //    ext: 'png'
     //}).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        minZoom: 1,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
     // localhoast map
     //L.tileLayer.provider('Stadia.AlidadeSmooth').addTo(map);
