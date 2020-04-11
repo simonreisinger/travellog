@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./leaflet/leaflet.css"/>
     <script src="./leaflet/leaflet.js"></script>
 
-    <script src="leaflet-gpx-master/gpx.min.js"></script>
+    <script src="./leaflet-gpx-master/gpx.min.js"></script>
     <script src="./data/roadtrips.js"></script>
     <script src="./data/interrail.js"></script>
     <script src="./data/places_of_residence.js"></script>
@@ -44,12 +44,12 @@
                 </tr>
                 <tr>
                     <td align="center"><input type="checkbox" id="filterKaempfer1" value="HKL"
-                                              onClick="changeInterrail(event)" checked/></td>
+                                              onClick="changeLayers(event, layer_interrail)" checked/></td>
                     <td align="center" colspan="3">Interrail</td>
                 </tr>
                 <tr>
                     <td align="center"><input type="checkbox" id="filterKaempfer2" value="HKL"
-                                              onClick="changeRoadtrip(event)" checked/></td>
+                                              onClick="changeLayers(event, layer_roadtrip)" checked/></td>
                     <td align="center" colspan="3">Roadtrip</td>
                 </tr>
             </table>
@@ -67,12 +67,12 @@
                 </tr>
                 <tr>
                     <td align="center"><input type="checkbox" id="filterPlaces1" value="HKL"
-                                              onClick="changeResidence(event)" checked/></td>
+                                              onClick="changeLayers(event, layer_residence)" checked/></td>
                     <td align="center" colspan="3">Places Lived</td>
                 </tr>
                 <tr>
-                    <td align="center"><input type="checkbox" id="filterPlaces2" value="HKL" onClick="changeCity(event)"
-                                              checked/></td>
+                    <td align="center"><input type="checkbox" id="filterPlaces2" value="HKL"
+                                              onClick="changeLayers(event, layer_city)" checked/></td>
                     <td align="center" colspan="3">Places Traveled</td>
                 </tr>
             </table>
@@ -107,11 +107,11 @@
     // Close the dropdown if the user clicks outside of it
     window.onclick = function (e) {
         if (!e.target.matches('.dropbtn')) {
-            var myDropdown1 = document.getElementById("myDropdown1");
+            let myDropdown1 = document.getElementById("myDropdown1");
             if (myDropdown1.classList.contains('show')) {
                 myDropdown1.classList.remove('show');
             }
-            var myDropdown2 = document.getElementById("myDropdown2");
+            let myDropdown2 = document.getElementById("myDropdown2");
             if (myDropdown2.classList.contains('show')) {
                 myDropdown2.classList.remove('show');
             }
@@ -122,29 +122,11 @@
     // initialize the map
     let map = L.map('map').setView([45, -40], 3.4);
 
-    // load a tile layer
-    //L.tileLayer('http://a.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    //    attribution: 'Tiles by <a href="https://opentopomap.org/">OpenTopoMap</a>',
-    //    maxZoom: 17,
-    //    minZoom: 1
-    //}).addTo(map);
-
-    // TODO activate after debugging
-    //L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}{r}.{ext}', {
-    //    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    //    subdomains: 'abcd',
-    //    minZoom: 0,
-    //    maxZoom: 18,
-    //    ext: 'png'
-    //}).addTo(map);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         minZoom: 1,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&#169; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
-    // localhoast map
-    //L.tileLayer.provider('Stadia.AlidadeSmooth').addTo(map);
 
     let layer_roadtrip = L.featureGroup();
     for (let gps_road in roadtrips) {
@@ -166,17 +148,15 @@
                 name = gpx.get_name(),
                 distM = gpx.get_distance(),
                 distKm = distM / 1000,
-                distKmRnd = distKm.toFixed(1),
-                eleGain = gpx.get_elevation_gain().toFixed(0),
-                eleLoss = gpx.get_elevation_loss().toFixed(0);
-            let info = "Name: " + name + "</br>" +
-                "Distance: " + distKmRnd + " km </br>";
+                //eleGain = gpx.get_elevation_gain().toFixed(0),
+                //eleLoss = gpx.get_elevation_loss().toFixed(0),
+                distKmRnd = distKm.toFixed(1);
+            let info = `Name: ${name}</br>Distance: ${distKmRnd} km </br>`;
 
             // register popup on click
             gpx.bindPopup(info);
             gpx.on('mouseover', function (e) {
-                let p = L.point([e.originalEvent.clientX,e.originalEvent.clientY-50]);
-                console.log(p);
+                let p = L.point([e.originalEvent.clientX, e.originalEvent.clientY - 50]);
                 let latlng = map.containerPointToLatLng(p);
                 this.openPopup(latlng);
             });
@@ -211,18 +191,16 @@
                 distKmRnd = distKm.toFixed(1),
                 eleGain = gpx.get_elevation_gain().toFixed(0),
                 eleLoss = gpx.get_elevation_loss().toFixed(0);
-            let info = "Name: " + name + "</br>" +
-                "Distance: " + distKmRnd + " km </br>";
+            let info = `Name: ${name}</br>Distance: ${distKmRnd} km </br>`;
 
             // register popup on click
             gpx.bindPopup(info);
-            // TODO https://stackoverflow.com/questions/59193983/leaflet-show-popup-on-hover-with-the-location-of-the-mouse
             gpx.on('mouseover', function (e) {
-                let p = L.point([e.originalEvent.clientX,e.originalEvent.clientY-50]);
+                let p = L.point([e.originalEvent.clientX, e.originalEvent.clientY - 50]);
                 let latlng = map.containerPointToLatLng(p);
                 this.openPopup(latlng);
             });
-            gpx.on('mouseout', function (e) {
+            gpx.on('mouseout', function () {
                 this.closePopup();
             });
         });
@@ -240,10 +218,10 @@
             radius: 12
         }).addTo(layer_residence);
         marker.bindPopup(position);
-        marker.on('mouseover', function (e) {
+        marker.on('mouseover', function () {
             this.openPopup();
         });
-        marker.on('mouseout', function (e) {
+        marker.on('mouseout', function () {
             this.closePopup();
         });
 
@@ -261,48 +239,22 @@
         }).addTo(layer_city);
 
         marker.bindPopup(city);
-        marker.on('mouseover', function (e) {
+        marker.on('mouseover', function () {
             this.openPopup();
         });
-        marker.on('mouseout', function (e) {
+        marker.on('mouseout', function () {
             this.closePopup();
         });
     }
     map.addLayer(layer_city);
 
-
-    function changeRoadtrip(e) {
+    function changeLayers(e, featureGroup) {
         if (e.target.checked) {
-            map.addLayer(layer_roadtrip);
+            map.addLayer(featureGroup);
         } else {
-            map.removeLayer(layer_roadtrip);
+            map.removeLayer(featureGroup);
         }
     }
-
-    function changeInterrail(e) {
-        if (e.target.checked) {
-            map.addLayer(layer_interrail);
-        } else {
-            map.removeLayer(layer_interrail);
-        }
-    }
-
-    function changeResidence(e) {
-        if (e.target.checked) {
-            map.addLayer(layer_residence);
-        } else {
-            map.removeLayer(layer_residence);
-        }
-    }
-
-    function changeCity(e) {
-        if (e.target.checked) {
-            map.addLayer(layer_city);
-        } else {
-            map.removeLayer(layer_city);
-        }
-    }
-
 </script>
 </body>
 </html>
