@@ -217,7 +217,8 @@
             opacity: 0.84,
             radius: 12
         }).addTo(layer_residence);
-        marker.bindPopup(position);
+        marker.bindPopup(`${place_of_residence[residence].name}</br><a href=${place_of_residence[residence].url}>Images Here</a>`
+        );
         marker.on('mouseover', function () {
             this.openPopup();
         });
@@ -238,7 +239,8 @@
             radius: 12
         }).addTo(layer_city);
 
-        marker.bindPopup(city);
+        marker.bindPopup(`${cities_visited[city].name}</br><a href=${cities_visited[city].url}>Images Here</a>`
+        );
         marker.on('mouseover', function () {
             this.openPopup();
         });
