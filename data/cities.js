@@ -1,4 +1,4 @@
-var cities_visited = {
+let cities_visited = {
     // Caribbean
     Oranjestad: {Lat: 12.5268736, Lon: -70.0356845, url: "https://www.instagram.com/p/B6ZpnoWgenB/", name: "Oranjestad"},
     Willemstad: {Lat: 12.1091242, Lon: -68.9316546, url: "", name: "Willemstad"},
