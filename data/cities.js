@@ -5,6 +5,7 @@ var cities_visited = {
     // North America
     NYC: {Lat: 40.7130126953125, Lon: -74.00712585449219, url: "https://simonreisinger.com/new-york-city/", name: "New York City"},
     Chicago: {Lat: 41.878114, Lon: -87.629798, url: "https://simonreisinger.com/usa/", name: "Chicago"},
+    StLouis: {Lat: 38.653433, Lon: -90.243472, url: "https://simonreisinger.com/usa/", name: "St. Louis"},
     Miami: {Lat: 25.761680, Lon: -80.191790, url: "https://simonreisinger.com/usa/", name: "Miami"},
     KeyWest: {Lat: 24.555059, Lon: -81.779987, url: "https://simonreisinger.com/usa/", name: "Key West"},
     LasVegas: {Lat: 36.169941, Lon: -115.139830, url: "https://simonreisinger.com/usa/", name: "Las Vegas"},
@@ -19,6 +20,7 @@ var cities_visited = {
 
     // Europe
     Lissabon: {Lat: 38.722252, Lon: -9.139337, url: "https://simonreisinger.com/lisbon/", name: "Lissabon"},
+    Lagos: {Lat: 37.102836, Lon: -8.672161, url: "", name: "Lagos"},
 
     // Spain
     Barcelona: {Lat: 41.385064, Lon: 2.173404, url: "https://simonreisinger.com/spain/", name: "Barcelona"},
@@ -51,6 +53,7 @@ var cities_visited = {
     Munich: {Lat: 48.135125, Lon: 11.581981, url: "", name: "Munich"},
     Graz: {Lat: 47.070714, Lon: 15.439504, url: "", name: "Graz"},
     Salzburg: {Lat: 47.809490, Lon: 13.055010, url: "", name: "Salzburg"},
+    Villach: {Lat: 46.613457, Lon: 13.836462, url: "", name: "Villach"},
 
     // Italy
     Lignano: {Lat: 45.668555, Lon: 13.104086, url: "https://simonreisinger.com/italy/", name: "Lignano"},
