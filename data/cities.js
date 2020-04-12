@@ -27,6 +27,9 @@ var cities_visited = {
     Avila: {Lat: 40.658836, Lon: -4.704552, url: "https://simonreisinger.com/spain/", name: "Avila"},
     Segovia: {Lat: 40.942903, Lon: -4.108807, url: "https://simonreisinger.com/spain/", name: "Segovia"},
     Sevilla: {Lat: 37.3890926, Lon: -5.984459, url: "", name: "Sevilla"},
+    Cadiz: {Lat: 36.529739, Lon: -6.292650, url: "", name: "Cádiz"},
+    Nerja: {Lat: 36.785915, Lon: -3.804483, url: "", name: "Nerja"},
+
     Fuerteventura: {Lat: 28.358744, Lon: -14.053676, url: "https://simonreisinger.com/canary-islands/", name: "Fuerteventura"},
     Lanzarote: {Lat: 28.685769, Lon: -14.754639, url: "https://simonreisinger.com/canary-islands/", name: "Lanzarote"},
 
@@ -42,7 +45,9 @@ var cities_visited = {
     Gibraltar: {Lat: 36.140751, Lon: -5.353585, url: "", name: "Gibraltar"},
     Guernsey: {Lat: 49.465691, Lon: -2.585278, url: "", name: "Guernsey"},
 
-    Zurich: {Lat: 47.368650, Lon: 8.539183, url: "", name: "Zurich"},
+    Zurich: {Lat: 47.368650, Lon: 8.539183, url: "", name: "Zürich"},
+    Luzern: {Lat: 47.048838, Lon: 8.302231, url: "", name: "Luzern"},
+    Wengen: {Lat: 46.605441, Lon: 7.921724, url: "", name: "Wengen"},
     Munich: {Lat: 48.135125, Lon: 11.581981, url: "", name: "Munich"},
     Graz: {Lat: 47.070714, Lon: 15.439504, url: "", name: "Graz"},
     Salzburg: {Lat: 47.809490, Lon: 13.055010, url: "", name: "Salzburg"},
