@@ -1,4 +1,4 @@
 # travellog
 travellog by using leafletjs
 
-Live: http://ippon1.github.io/travellog
+Live: https://ippon1.github.io/travellog
