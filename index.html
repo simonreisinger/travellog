@@ -239,8 +239,8 @@
             radius: 12
         }).addTo(layer_city);
 
-        marker.bindPopup(`${cities_visited[city].name}</br><a target="_blank" rel="noopener noreferrer" href=${cities_visited[city].url}>Images Here</a>`
-        );
+        marker.bindPopup(`${cities_visited[city].name}`); // </br><a target="_blank" rel="noopener noreferrer" href=${cities_visited[city].url}>Images Here</a>
+        //marker.bindPopup(`<div style="margin-bottom: -20px" onmouseout="closeP(this)"><div style="margin-bottom: 20px">${cities_visited[city].name}</br><a target="_blank" rel="noopener noreferrer" href=${cities_visited[city].url}>Images Here</a></div></div>`);
         marker.on('mouseover', function () {
             this.openPopup();
         });
@@ -260,6 +260,10 @@
         } else {
             map.removeLayer(featureGroup);
         }
+    }
+
+    function closeP(e) {
+        e.closePopup();
     }
 </script>
 </body>
