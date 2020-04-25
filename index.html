@@ -14,29 +14,20 @@
     <script src="./data/places_of_residence.js"></script>
     <script src="./data/cities.js"></script>
     <script src="./leaflet-providers/leaflet-providers.js"></script>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+
     <!--<script src="./keys.js"></script>-->
 </head>
 
 <body>
-<div class="navbarBackground">
-    <br/>
-</div>
-<div class="navbarBackground">
-    <br/>
-</div>
-<div class="navbar">
-    <div class="dropdown" style="font-size: 0;">
-        <img src="logos/logo-white_transparent_small.png" alt="logo">
-    </div>
+<!--/////////////////Menu///////////////////////////-->
+<div class="topnav" id="myTopnav">
+    <a href="#" class="active">Travellog</a>
     <div class="dropdown">
-        <!-- TODO why mauszeiger ohne button auch? -->
-        <button class="dropLabel menuBreiteFilter">Filter:</button>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn menuBreiteKaempfer" onclick="myFunction(1)">Reiseart
+        <button class="dropbtn">Types of travel
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content menuBreiteKaempfer" id="myDropdown1">
+        <div class="dropdown-content" style="z-index: 10000;">
             <table border="0" cellpadding="2" cellspacing="0">
                 <tr>
                     <th>Gewertet</th>
@@ -53,13 +44,14 @@
                     <td align="center" colspan="3">Roadtrip</td>
                 </tr>
             </table>
+
         </div>
     </div>
     <div class="dropdown">
-        <button class="dropbtn menuPlaces" onclick="myFunction(2)">Orte
+        <button class="dropbtn">Places
             <i class="fa fa-caret-down"></i>
         </button>
-        <div class="dropdown-content menuPlaces" id="myDropdown2">
+        <div class="dropdown-content" style="z-index: 10000;">
             <table border="0" cellpadding="2" cellspacing="0">
                 <tr>
                     <th>Gewertet</th>
@@ -68,30 +60,24 @@
                 <tr>
                     <td align="center"><input type="checkbox" id="filterPlaces1" value="HKL"
                                               onClick="changeLayers(event, layer_residence)" checked/></td>
-                    <td align="center" colspan="3">Places Lived</td>
+                    <td align="center" colspan="3">Lived</td>
                 </tr>
                 <tr>
                     <td align="center"><input type="checkbox" id="filterPlaces2" value="HKL"
                                               onClick="changeLayers(event, layer_city)" checked/></td>
-                    <td align="center" colspan="3">Places Traveled</td>
+                    <td align="center" colspan="3">Traveled</td>
                 </tr>
             </table>
+
         </div>
     </div>
-    <a href="https://github.com/ippon1">
-        <div class="dropdown">
-            <button class="dropbtn">Source Code</button>
-        </div>
-    </a>
-    <a href="https://simonreisinger.com/privacy-policy">
-        <div class="dropdown">
-            <button class="dropbtn">Impressum</button>
-        </div>
-    </a>
+
+    <a href="https://github.com/ippon1"> Source Code </a>
+    <a href="https://simonreisinger.com/privacy-policy"> Impressum </a>
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
-<div class="navbarPlaceholer">
-    <br/>
-</div>
+<!--/////////////////Menu///////////////////////////-->
 
 
 <!-- To display the map -->
@@ -99,24 +85,16 @@
 
 <script>
     /////////////////Menu///////////////////////////
-    /* When the user clicks on the button, toggle between hiding and showing the dropdown content */
-    function myFunction(i) {
-        document.getElementById("myDropdown" + i).classList.toggle("show");
+    /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
     }
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (e) {
-        if (!e.target.matches('.dropbtn')) {
-            let myDropdown1 = document.getElementById("myDropdown1");
-            if (myDropdown1.classList.contains('show')) {
-                myDropdown1.classList.remove('show');
-            }
-            let myDropdown2 = document.getElementById("myDropdown2");
-            if (myDropdown2.classList.contains('show')) {
-                myDropdown2.classList.remove('show');
-            }
-        }
-    };
     /////////////////Menu///////////////////////////
 
     // initialize the map
