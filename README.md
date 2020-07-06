@@ -10,3 +10,6 @@ Used Resources:
 
 # My travels
 ![My Travels](https://raw.githubusercontent.com/ippon1/travellog/master/exampleImages/example_image.png)
+
+# TODOs
+* Make menu smartphone useable
