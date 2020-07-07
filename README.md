@@ -1,5 +1,5 @@
 # travellog
-travellog by using leafletjs. Visualization [here](https://ippon1.github.io/travellog) 
+travellog by using leafletjs. Visualization [here](https://ippon1.github.io/travellog).
 
 Used Resources: 
 * [Font Awesome](https://fontawesome.com/v4.7.0/)
