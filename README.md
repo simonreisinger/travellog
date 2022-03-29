@@ -1,5 +1,5 @@
 # travellog
-travellog by using leafletjs. Visualization [here](https://ippon1.github.io/travellog).
+travellog by using leafletjs. Visualization [here](https://simonreisinger.github.io/travellog).
 
 Used Resources: 
 * [Font Awesome](https://fontawesome.com/v4.7.0/)
@@ -7,7 +7,7 @@ Used Resources:
 * [OpenStreetMap](https://openstreetmap.org)
 
 # My travels
-![My Travels](https://raw.githubusercontent.com/ippon1/travellog/master/exampleImages/example_image.png)
+![My Travels](https://raw.githubusercontent.com/simonreisinger/travellog/master/exampleImages/example_image.png)
 
 # TODOs
 * Make menu smartphone useable
